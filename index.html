@@ -1,91 +1,213 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cars</title>
+    <title>API</title>
     <link rel="stylesheet" href="css/output.css" />
   </head>
-  <body class="bg-[#6D6E72] min-h-screen overflow-x-hidden">
-    <header class="bg-[#6D6E72]">
-        <div class="navbar shadow-sm">
+  <body>
+
+  <header class="bg-[#6D6E72]">
+      <div class="navbar shadow-sm">
   <div class="flex-1">
-    <a class="btn btn-ghost text-xl">Cars</a>
+        <a class="btn btn-ghost text-xl">Cars</a>
   </div>
-  <div class="flex-none">
+        <div class="flex-none">
   </div>
-</div>
+
+  <div class="flex justify-end w-full">
+        <button class="btn btn-primary" onclick="my_modal_3.showModal()">
+          + Add
+        </button>
+  </div>
+  <dialog id="my_modal_3" class="modal modal-middle absolute">
+  <div
+    class="modal-box w-[420px] max-h-[90vh] p-6 rounded-2xl shadow-2xl absolute">
+
+    <form method="dialog">
+      <button
+        class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3 hover:bg-red-500 hover:text-white transition">
+        ✕
+      </button>
+    </form>
+
+    <h3 class="text-xl font-bold text-center mb-2">
+      Yangi mashina qo'shish
+    </h3>
+
+    <p class="text-center text-sm text-gray-400 mb-4">
+      Yangi mashina qo'shish uchun ma'lumotlarni kiriting
+    </p>
+
+
+    <form
+      id="carAddForm"
+      class="flex flex-col gap-3 overflow-y-auto">
+
+      <input
+        name="name"
+        type="text"
+        placeholder="Car name"
+        class="input w-full transition" />
+
+      <input
+        name="year"
+        type="number"
+        min="2000"
+        max="2025"
+        placeholder="Car year"
+        class="input w-full transition" />
+
+      <div class="flex items-center gap-3">
+        <span class="text-sm">Color:</span>
+        <input
+          type="color"
+          name="color"
+          class="h-10 w-full cursor-pointer rounded-lg border transition" />
+      </div>
+
+      <input
+        name="maxSpeed"
+        type="text"
+        placeholder="Max speed"
+        class="input w-full transition" />
+
+      <input
+        name="horsePower"
+        type="number"
+        placeholder="Horse power"
+        class="input w-full transition" />
+
+      <input
+        name="seatCount"
+        type="number"
+        placeholder="Seat count"
+        class="input w-full transition" />
+
+      <input
+        name="country"
+        type="text"
+        placeholder="Country"
+        class="input w-full transition" />
+
+      <input
+        name="fuelType"
+        type="text"
+        placeholder="Fuel type"
+        class="input w-full transition" />
+
+      <input
+        name="doorCount"
+        type="number"
+        placeholder="Door count"
+        class="input w-full transition" />
+
+      <input
+        name="colorName"
+        type="text"
+        placeholder="Color name"
+        class="input w-full transition" />
+
+      <button
+        class="btn btn-primary w-full mt-3 transition">
+        Submit
+      </button>
+
+    </form>
+  </div>
+</dialog>
+        </div>
     </header>
+
     <main>
-    <div class="grid grid-cols-3 gap-10" id="container"></div>
-    <div class="grid grid-cols-3 gap-10" id="loader"></div>
-    <template id="templateCard">
-      <div class="card shadow-sm shadow-[#272727] bg-[#6D6E72] mt-[100px] transition-all hover:shadow-[0px_0px_10px_#DB2E4D] ">
-        <figure>
-          <img
-            src=""
-            alt=""
-          />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title"></h2>
-          <h3></h3>
-          <p></p>
-          <h4></h4>
-          <div class="flex items-end">
-             <a href="new.html">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACl0lEQVR4nO1XPW8TQRBdhEAhQEdPBaHnq6WDCAqgjIA/EomWJEBDAw0FHZj/QEl1xLPnGZ9v5pxDdkyTLtgUSHBojhjZaye2iX0XR/eklay7W+u93Xk7b40pUKBAgQIFjgsQ8TSgrFuUbxalBSRr+szMC4BkzZIkvUOfDfu2XA3vWpRt9/tZDSBpWoqWDxSgqz4wGaW1j9hmVuTtPxHcON4CYEgJWZJnQ8VStJylCCBuAMqd0SZWEboT82jiAgUKFMgXWGQhGb8xIf8GZA+Qn5YrcssGwRIAnD2UgCyiREqc5KPv164cimwuAlC2gMKbUyeeTRbiT16tdsHMEphxFiolyUmf5L5FfgckAZB8tyRtixxa5A9l4kefG40z5igCKnLbktDoFCpNIHlsjgqSJDlhSVbVzHYyD73xPO9U3vyNkv/vewHK29zLBpB/OcTa2jz9ILqqfUCH70fXAGXDEndcEeqLXMirYd2aB2LZpOjSfnPS5kYSuTezOI4XsmVvjElPG3flq/XLo+apiIGdQF7JPAvpUdnfkWV9grnPHQHvZ56FvtDWxb7/Rqn1vteaN2Nis1K/7ggIZx4lPK+16AjY7X2PiOfGFRAEwXln93azF/C3y05FgCXuzDwLuSVkkXlaJQQk9cyzkGYbpww2xp5L/NIRUDJZQxuQe4zaIFgaNU/vDRb5R5+AqjwxWUNTpVtyoE3qABFKXsvF8eTOJP6ZKjRVDvqFO5b4RRnDG90oob/TsnFWfu/7VyZPWJTXEwU4Ghg/y9XoQW4CNBLPvYiuqYG4MZIsyo6WjZJ2RUCF75k8EcfxggYzzTZ7UaOdeiK9/EtJT5uuYXXFB0QgfzXzBKiED/tEoGznzWliaNnoyit5DZR/ACA//rGQyKsXAAAAAElFTkSuQmCC" alt="search-in-list">
-              </a>
-          <div class="card-actions justify-end">
-            <div class="tooltip" data-tip="Delete">
-              
-              <button class="btn btn-error js-delete-button ">
-                <svg
-                  class="text-white pointer-events-none"
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.5 1C5.22386 1 5 1.22386 5 1.5C5 1.77614 5.22386 2 5.5 2H9.5C9.77614 2 10 1.77614 10 1.5C10 1.22386 9.77614 1 9.5 1H5.5ZM3 3.5C3 3.22386 3.22386 3 3.5 3H5H10H11.5C11.7761 3 12 3.22386 12 3.5C12 3.77614 11.7761 4 11.5 4H11V12C11 12.5523 10.5523 13 10 13H5C4.44772 13 4 12.5523 4 12V4L3.5 4C3.22386 4 3 3.77614 3 3.5ZM5 4H10V12H5V4Z"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </button>
+      <section class="pt-25 mx-auto max-w-250">
+        <div class="flex gap-[15px] pb-20">
+        <div
+          id="container"
+          class="flex flex-wrap justify-between items-center gap-5 mb-[100px]"
+        ></div>
+        <div id="loader" class="flex flex-wrap justify-between items-center gap-5"></div>
+
+
+           <template id="templateCard">
+          <div class="card bg-base-100 w-96 text-black bg-[#616161] shadow-sm">
+            <div class="card-body">
+              <h2 class="card-title" id="card-title"></h2>
+              <p id="card-text"></p>
+
+              <div class="card-actions relative justify-end">
+                <div class="tooltip" data-tip="Delete">
+                  <button class="btn js-delete-button btn-primary bg-red-700 text-white">
+                    <svg
+                      class="pointer-events-none"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.5 1C5.22386 1 5 1.22386 5 1.5C5 1.77614 5.22386 2 5.5 2H9.5C9.77614 2 10 1.77614 10 1.5C10 1.22386 9.77614 1 9.5 1H5.5ZM3 3.5C3 3.22386 3.22386 3 3.5 3H5H10H11.5C11.7761 3 12 3.22386 12 3.5C12 3.77614 11.7761 4 11.5 4H11V12C11 12.5523 10.5523 13 10 13H5C4.44772 13 4 12.5523 4 12V4L3.5 4C3.22386 4 3 3.77614 3 3.5ZM5 4H10V12H5V4Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="tooltip" data-tip="Info">
+                  <button class="btn btn-primary js-info-button bg-blue-700 text-white">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-             </div>
-        </div>
-      </div>
-    </template>
+        </template>
+
+
+        <!-- Loader -->
+        <template id="templateLoader">
+          <div class="card bg-base-100 w-96">
+            <div class="card-body">
+              <h2 class="card-title skeleton w-75 h-6.75" id="card-title"></h2>
+              <p id="card-text" class="skeleton w-75 h-5"></p>
+              <div class="card-actions justify-end pt-5">
+                <div class="skeleton w-12 h-10"></div>
+                <div class="skeleton w-12 h-10"></div>
+              </div>
+            </div>
+          </div>
+
+        </template>
+      </section>
     </main>
-    <template id="templateSkeleton">
-      <div class="card shadow-sm">
-        <figure>
-          <div class="skeleton h-40 w-55.5"></div>
-        </figure>
-        <div class="card-body">
-          <div class="skeleton h-6.5 w-full"></div>
-          <div class="flex gap-2">
-            <div class="skeleton h-5 w-40"></div>
-            <div class="skeleton h-5 w-40"></div>
-          </div>
-          <div class="card-actions justify-end">
-            <div class="skeleton h-10 w-23"></div>
-          </div>
-        </div>
-      </div>
-    </template>
-    <div class="flex my-10 gap-10 pl-5 items-center justify-center">
+
+    <footer>
+       <div class="flex my-10 gap-10 pl-5 items-center justify-center">
       <div class="flex gap-10">
         <button class="btn bg-[#6D6E72] transition-all hover:bg-[#DB2E4D] hover:shadow-[0px_0px_10px_#DB2E4D]" id="prev">Prev</button>
         <button class="btn bg-[#6D6E72] transition-all hover:bg-[#DB2E4D] hover:shadow-[0px_0px_10px_#DB2E4D]" id="next">Next</button>
       </div>
     </div>
-    <script src="./js/app.js"></script>
+    </footer>
+
+    <!-- script -->
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>

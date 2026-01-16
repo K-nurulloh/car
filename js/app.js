@@ -65,7 +65,7 @@ function ui(data) {
 
     clone.querySelector('h2').innerText = el.name ? el.name : 'No title';
 
-    // 🔧 TUZATILGAN JOY
+    
     clone.querySelector('p').innerText =
       el.category && el.year
         ? el.category + ' ' + el.year

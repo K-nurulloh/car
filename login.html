@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auth</title>
+  <link rel="stylesheet" href="./css/output.css" />
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-[#2a201a]">
+
+  <div class="w-80 p-8 rounded-2xl bg-[#3a2a21] border border-[#5a3f31] shadow-xl text-[#f2e7dc]">
+
+    <div class="flex mb-6 rounded-xl overflow-hidden border border-[#5a3f31]">
+      <button id="loginBtn"
+        class="w-1/2 py-2 bg-[#6b4a2f] text-white font-semibold hover:bg-[#7a5637] duration-200">
+        Login
+      </button>
+      <button id="registerBtn"
+        class="w-1/2 py-2 bg-[#2f241e] text-[#f2e7dc] font-semibold hover:bg-[#433024] duration-200">
+        Register
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-3">
+
+      <form id="loginForm">
+        <input
+          class="w-full mb-3 px-3 py-2 rounded-lg bg-[#2f241e] border border-[#5a3f31] text-[#f2e7dc]"
+          placeholder="Ism" required />
+
+        <input
+          type="password"
+          class="w-full mb-3 px-3 py-2 rounded-lg bg-[#2f241e] border border-[#5a3f31] text-[#f2e7dc]"
+          placeholder="Parol" required />
+
+        <button
+          class="w-full mb-3 px-3 py-2 rounded-lg bg-[#6b4a2f] hover:bg-[#7a5637] text-white font-semibold duration-200">
+          Kirish
+        </button>
+      </form>
+
+      <form id="registerForm" class="hidden">
+        <input
+          class="w-full mb-3 px-3 py-2 rounded-lg bg-[#2f241e] border border-[#5a3f31] text-[#f2e7dc]"
+          placeholder="Ism" required />
+
+        <input
+          type="password"
+          class="w-full mb-3 px-3 py-2 rounded-lg bg-[#2f241e] border border-[#5a3f31] text-[#f2e7dc]"
+          placeholder="Parol" required />
+
+        <input
+          type="tel"
+          class="w-full mb-3 px-3 py-2 rounded-lg bg-[#2f241e] border border-[#5a3f31] text-[#f2e7dc]"
+          placeholder="Telefon" required />
+
+        <input
+          type="email"
+          class="w-full mb-3 px-3 py-2 rounded-lg bg-[#2f241e] border border-[#5a3f31] text-[#f2e7dc]"
+          placeholder="Email" required />
+
+        <button
+          class="w-full px-3 py-2 rounded-lg bg-[#6b4a2f] hover:bg-[#7a5637] text-white font-semibold duration-200">
+          Ro‘yxatdan o‘tish
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+
+  <script src="./js/login.js"></script>
+  <script src="./js/registatsa.js"></script>
+</body>
+</html>

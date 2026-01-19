@@ -41,7 +41,7 @@ function login(data) {
       location.href = "./index.html";
     })
     .catch(() => {
-      alert("Parol Yoki Login Xato ❌");
+      alert("Login Yoki Parol Xato ❌");
     });
 }
 

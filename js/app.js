@@ -110,7 +110,6 @@ elnext.addEventListener("click", () => {
 });
 
 elContanier.addEventListener("click", (evt) => {
-  // delete
 
   if (evt.target.classList.contains("js-delete-button")) {
     evt.target.disabled = true;

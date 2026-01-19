@@ -4,34 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/output.css" />
-    <title>Document</title>
+    <title>Car Details</title>
   </head>
-  <body>
-    <a
-      href="/index.html"
-      class="bg-gray-200 text-black p-5 flex flex-col items-center shadow-2xl"
-      >Back</a
-    >
 
-    <div
-      id="p"
-      class="flex flex-col justify-center gap-4 shadow items-center font-bold text-[18px] text-gray-700 bg-white mt-[120px] p-[70px]">
-        <ul class="space-y-2 text-white">
-          <li id="p1"><strong>Name:</strong> Chevrolet Malibu</li>
-          <li id="p2"><strong>Trim:</strong> LT</li>
-          <li id="p3"><strong>Generation:</strong> Eighth</li>
-          <li id="p4"><strong>Year:</strong> 2022</li>
-          <li id="p5"><strong>Category:</strong> Sedan</li>
-          <li id="p6"><strong>Doors:</strong> 4</li>
-          <li id="p7"><strong>Seats:</strong> 5</li>
-          <li id="p8"><strong>Top Speed:</strong> 210 km/h</li>
-          <li id="p8"><strong>Acceleration:</strong> 0–100 km/h in 8.6s</li>
-          <li id="p9"><strong>Engine:</strong> 1.5L Turbo I4</li>
-          <li id="p10"><strong>Horsepower:</strong> 160</li>
-        </ul>
+  <body class="min-h-screen bg-[#2a201a] flex flex-col">
+
+    <div class="max-w-[1152px] mx-auto w-full px-5 py-4">
+      <a
+        href="/index.html"
+        class="inline-flex items-center gap-2
+               px-4 py-2 rounded-lg
+               bg-[#3a2a21] border border-[#5a3f31]
+               text-[#f2e7dc] hover:bg-[#433024] duration-200">
+        ← Back
+      </a>
     </div>
 
-   
+    <div class=" flex items-start justify-center px-5">
+      <div
+        id="p"
+        class="w-full max-w-[600px]
+               bg-[#3a2a21] border border-[#5a3f31]
+               rounded-2xl shadow-2xl
+               p-8 mt-10">
+
+        <h1 class="text-2xl font-bold text-[#f2e7dc] mb-6 text-center">
+          Car Information
+        </h1>
+
+        <ul class="text-[#f2e7dc] text-[16px]">
+          <li id="p1"><span class="text-[#d6c2ad]">Name:</span> Chevrolet Malibu</li>
+          <li id="p2"><span class="text-[#d6c2ad]">Trim:</span> LT</li>
+          <li id="p3"><span class="text-[#d6c2ad]">Generation:</span> Eighth</li>
+          <li id="p4"><span class="text-[#d6c2ad]">Year:</span> 2022</li>
+          <li id="p5"><span class="text-[#d6c2ad]">Category:</span> Sedan</li>
+          <li id="p6"><span class="text-[#d6c2ad]">Doors:</span> 4</li>
+          <li id="p7"><span class="text-[#d6c2ad]">Seats:</span> 5</li>
+          <li id="p8"><span class="text-[#d6c2ad]">Top Speed:</span> 210 km/h</li>
+          <li id="p9"><span class="text-[#d6c2ad]">Acceleration:</span> 0–100 km/h in 8.6s</li>
+          <li id="p10"><span class="text-[#d6c2ad]">Engine:</span> 1.5L Turbo I4</li>
+          <li id="p11"><span class="text-[#d6c2ad]">Horsepower:</span> 160</li>
+        </ul>
+
+      </div>
+    </div>
+
     <script src="js/details.js"></script>
   </body>
 </html>
